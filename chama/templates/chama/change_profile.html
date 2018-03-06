@@ -1,0 +1,44 @@
+{% extends 'chama/index.html' %}
+
+<html>
+{% block content %}
+    <body>
+    <div class="container-fluid">
+        <h1 class="mt-4 mb-3" style="font-family: 'SIMPSON'; margin-left: 1.5em;">Changing account details</h1>
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item">
+                <a href="{% url 'chamatu:index' %}">Home</a>
+            </li>
+            <li class="breadcrumb-item active">Edit-profile</li>
+         </ol><br /><br />
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2" style="border: 0.1px solid #06C0C0; padding: 20px;">
+                {# Load the tag library #}
+                {% load bootstrap3 %}
+
+                {# Load CSS and JavaScript #}
+                {% bootstrap_javascript %}
+
+                {# Display django.contrib.messages as Bootstrap alerts #}
+                {% bootstrap_messages %}
+                {% load crispy_forms_tags %}
+
+                {# Display a form #}
+                <form action="" method="post" class="form">
+                    <h1 style="text-align: center; font-family: 'SIMPSON';">Edit your profile</h1>
+                    {% csrf_token %}
+                    {{ form|crispy }}
+                    {{ profile_form.management_form }}
+                    {{ profile_form|crispy }}
+                    {% buttons %}
+                        <button class="btn btn-default" type="submit" name="submit" style="background-color: #45B39D; color:white;">
+                            {% bootstrap_icon "star" %} Submit
+                        </button>
+                    {% endbuttons %}
+                </form>
+            </div>
+        </div>
+    </div>
+    </body>
+{% endblock %}
+</html>

@@ -1,0 +1,363 @@
+<html>
+
+<head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> {% load static %}
+    <link rel="stylesheet" href="{% static '/chama/css/styles.css' %}" type="text/css"> {% block head %}
+    <title>base</title>
+    {% endblock %}
+    <style>
+        #sidebar ul li a {
+            padding: 10px;
+            font-size: 1.0em;
+            display: block;
+        }
+        
+        .card {
+            position: relative;
+            display: -ms-flexbox;
+            display: flex;
+            -ms-flex-direction: column;
+            flex-direction: column;
+            min-width: 0;
+            word-wrap: break-word;
+            background-color: #fff;
+            background-clip: border-box;
+            border: 1px solid rgba(0, 0, 0, .125);
+            border-radius: .25rem;
+        }
+        
+        .card-footer {
+            padding: .75rem 1.25rem;
+            background-color: rgba(0, 0, 0, .03);
+            border-top: 1px solid rgba(0, 0, 0, .125);
+        }
+        
+        .card-header {
+            padding: .75rem 1.25rem;
+            margin-bottom: 0;
+            background-color: rgba(0, 0, 0, .03);
+            border-bottom: 1px solid rgba(0, 0, 0, .125);
+        }
+        
+        .card-body {
+            -ms-flex: 1 1 auto;
+            flex: 1 1 auto;
+            padding: 1.25rem;
+        }
+        
+        .card-text:last-child {
+            margin-bottom: 0;
+        }
+        
+        .col-lg-4 {
+            position: relative;
+            min-height: 1px;
+            padding-right: 15px;
+            padding-left: 15px;
+        }
+        
+        .mb-4 {
+            margin-bottom: 1.5rem!important;
+        }
+        
+        .ha {
+            display: inline-block;
+            border-radius: 60px;
+            box-shadow: 0px 0px 2px #888;
+            padding: 0.45em 0.6em;
+        }
+        
+        .fa {
+            color: #45B39D;
+        }
+        
+        .a {
+            color: white;
+        }
+        
+        .sidebar-nav-fixed {
+            width: 14%;
+            margin-top: 6em;
+        }
+        
+        .navbar {
+            padding: 0px 10px;
+            margin-left: -2.8em;
+            margin-right: -4.0em;
+        }
+        
+        #page-content-wrapper {
+            padding: 0px;
+            min-height: 100vh;
+            transition: all 0.3s;
+        }
+        
+        #sidebar ul li a {
+            padding: 10px;
+            font-size: 1.1em;
+            color: white;
+            display: block;
+            background: rgba(0, 0, 10, 25);
+        }
+        
+        #sidebar .list-unstyled ul li a {
+            padding: 10px;
+            font-size: 1.0em;
+            color: white;
+            display: block;
+            background: rgba(0, 0, 25, 25);
+        }
+        
+        #sidebar ul li a:hover {
+            color: white;
+            background: rgba(0, 0, 0, 0.45);
+        }
+        
+        #sidebarCollapse span {
+            width: 80%;
+            height: 2px;
+            margin: 0 auto;
+            display: block;
+            background: white;
+            transition: all 0.8s cubic-bezier(0.810, -0.330, 0.345, 1.375);
+        }
+        
+        #sidebarCollapse {
+            width: 40px;
+            height: 40px;
+            background: rgba(0, 0, 10, 25);
+        }
+        
+        h1 {
+            color: #45B39D;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="navbar navbar-fixed-top navbar-default" style="background: rgba(0, 0, 0, 0.10);">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" id="sidebarCollapse" class="navbar-btn" style="margin-left: 3em;">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </button>
+            </div>
+            <div class="container-fluid" style="margin-right: 3em;">
+                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                    {% if user.is_authenticated %}
+                    <ul class="nav navbar-nav navbar-right">
+                        <li><a href="{% url 'chamatu:view_profile' %}"><i style="color: grey;" class="fa a fa-user"></i> {{ user.username }}</a></li>
+                        <li><a href="{% url 'chamatu:logout' %}"><i style="color: grey;" class="fa a fa-sign-out"></i> Logout</a></li>
+                        <li><a href="{% url 'contact' %}"><i style="color: grey;" class="fa a fa-phone fa-lg"></i> Contact</a></li>
+                        {% if user.is_superuser %}
+                        <li>
+                            <a href="/admin/" style="font-family: 'SIMPSON';"><i class="fa fa-admin"></i>  Go to admin site</a>
+                        </li>
+                        {% endif %}
+                    </ul>
+                    {% else %}
+                    <ul class="nav navbar-nav navbar-right">
+                        <li><a href="{% url 'chamatu:login' %}" class="glyphicon glyphicon-log-in" style="color: black">Login</a></li>
+                        <li><a href="{% url 'chamatu:signup' %}" class="glyphicon glyphicon-user" style="color: black">signup</a></li>
+                        <li><a href="{% url 'contact' %}" class="glyphicon glyphicon-phone-alt" style="color: white">contact</a></li>
+                    </ul>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="wrapper" class="col-md-10">
+        <div id="sidebar-wrapper" style="background: rgba(0, 0, 10, 25);">
+            <div class="sidebar-header" style="background: rgba(0, 0, 0, 0.45); margin-top: 3.8em;">
+                <h3 style="font-family:FontAwesome; color: #45B39D;"><a href="{% url 'chamatu:index' %}">@KWSGA<sup><small style="color: #45B39D;">2018</small></sup></a></h3>
+            </div>
+            <nav id="sidebar">
+                <ul class="list-unstyled components">
+                    <li>
+                        <li>
+                            <a href="{% url 'chamatu:index' %}" style="font-family: 'Lobster';"><i class="fa fa-dashboard fa-lg"></i>  Dashboard</a>
+                        </li>
+                        <li>
+                            <a href="{% url 'chamatu:about' %}" style="font-family: 'Lobster';"><i class="fa fa-info-circle fa-lg"></i>  About</a>
+                        </li>
+                        <li>
+                            <a href="{% url 'chamatu:post_list_view' %}" style="font-family: 'Lobster';"><i class="fa fa-rss-square" aria-hidden="true"></i>  Admin posts</a>
+                        </li>
+                        <li href="#homeSubmenu" data-toggle="collapse" aria-expanded="false">
+                            <a href="#" style="font-family: 'Lobster';"><i class="fa fa-info-circle"></i> Projects <span class="caret pull-right" style="color:white;"></span></a>
+                        </li>
+                        <ul class="collapse list-unstyled" id="homeSubmenu">
+                            <li><a href="{% url 'chamatu:projects' %}" style="font-family: 'Lobster';">  Projects</a></li>
+                            <li><a href="{% url 'chamatu:progress' %}" style="font-family: 'Lobster';">  Progress</a></li>
+                        </ul>
+                        <li>
+                            <li href="#pageSubmenu" data-toggle="collapse" aria-expanded="false">
+                                <a href="#" style="font-family: 'Lobster';"><i class="fa fa-user fa-lg"></i> My account <span class="pull-right caret" style="color:white;"></span></a>
+                            </li>
+                            <ul class="collapse list-unstyled" id="pageSubmenu">
+                                {% if user.is_superuser %}
+                                <li><a href="{% url 'savings:savings' %}" style="font-family: 'Lobster;'">Manage savings</a></li>
+                                <li><a href="{% url 'savings:withdraw' %}" style="font-family: 'Lobster;'">Withdraw savings</a></li>
+                                <li><a href="{% url 'savings:deposit' %}" style="font-family: 'Lobster;'">Deposit savings</a></li>
+                                <li><a href="{% url 'chamatu:view_profile' %}" style="font-family: 'Lobster';">Profile</a></li>
+                                <li><a href="{% url 'chamatu:edit_profile' %}" style="font-family: 'Lobster';">Edit profile</a></li>
+                                <li><a href="{% url 'chamatu:savings' %}" style="font-family: 'Lobster';">Savings account</a></li>
+                                <li><a href="{% url 'chamatu:change_password' %}" style="font-family: 'Lobster';">Change Password</a></li>
+                                {% else %}
+                                <li><a href="{% url 'chamatu:view_profile' %}" style="font-family: 'Lobster';">Profile</a></li>
+                                <li><a href="{% url 'chamatu:edit_profile' %}" style="font-family: 'Lobster';">Edit profile</a></li>
+                                <li><a href="{% url 'chamatu:savings' %}" style="font-family: 'Lobster';">Savings account</a></li>
+                                <li><a href="{% url 'chamatu:borrow_loan' %}" style="font-family: 'Lobster;'">Borrow</a></li>
+                                <li><a href="{% url 'chamatu:payments' %}" style="font-family: 'Lobster;'">Make payments</a></li>
+                                <li><a href="{% url 'chamatu:change_password' %}" style="font-family: 'Lobster';">Change Password</a></li>
+                                {% endif %}
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="#" style="font-family: 'Lobster';"><i class="fa fa-users fa-sm"></i> users</a>
+                        </li>
+                        <li>
+                            <a href="{% url 'contact' %}" style="font-family: 'SIMPSON';"><i class="fa fa-phone"></i>  contact</a>
+                        </li>
+                </ul>
+            </nav>
+            <footer style="margin-top: 9em; background: rgba(0, 0, 10, 25); text-align: center;">
+                <div class="h" style="background: rgba(0, 0, 10, 25);">
+                    <div class="card-body">
+                        <h4 class="card-d" style="color: white;">Location</h4>
+                        <i class="fa ha fa-map-marker fa-lg"></i>
+                        <p style="font-family: 'Lobster'; color: #45B39D; font-size: 17px;">Kenya</p>
+                    </div>
+                </div><br /><br />
+                <div class="social-icons">
+                    <a href="#"><span class="ha fa fa-facebook"></span></a>
+                    <a href="#"><span class="fa ha fa-instagram"></span></a>
+                    <a href="#"><span class="fa ha fa-twitter"></span></a>
+                    <a href="#"><span class="fa ha fa-linkedin"></span></a>
+                    <a href="#"><span class="fa ha fa-google-plus"></span></a>
+                </div>
+            </footer>
+        </div>
+        <div id="page-content-wrapper" class="col-md-12" style="margin-top: -0.5em;">
+            {% block content %}
+            <div class="container-fluid">
+                <h1 class="mt-4 mb-3" style="font-family: 'SIMPSON'; margin-left:1.5em;"> Dashboard</h1>
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item">
+                        <a href="{% url 'chamatu:index' %}">Home</a>
+                    </li>
+                    <li class="breadcrumb-item active">Profile</li>
+                </ol>
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="well well-md">
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <h1>{{ user.first_name }} {{ user.last_name }}</h1>
+                                    <small>
+                                            <cite title="San Francisco, USA">{{ user.profile.city }}, {{ user.profile.country }}<i class="glyphicon glyphicon-map-marker"></i></cite>
+                                        </small><br><br>
+                                    <p style="color: #45B39D;">
+                                        <i class="glyphicon glyphicon-envelope" style="color: black;"></i> {{ user.email }}
+                                        <br /><br />
+                                        <i class="glyphicon glyphicon-globe" style="color: black;"></i> {{ user.profile.organization }}
+                                        <br /><br />
+                                        <i class="glyphicon glyphicon-gift" style="color: black;"></i> {{ user.profile.birthdate }}
+                                        <br /><br />
+                                        <i class="glyphicon glyphicon-phone" style="color: black;"></i> {{ user.profile.phone }}
+                                        <br /><br />
+                                        <i style="color: black;"></i>Bio:<br /><br />{{ user.profile.description }}
+                                    </p>
+                                </div>
+                                <div class="col-sm-6">
+                                    <h1 style="color: red;">{{ account.member.region }}</h1>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% endblock %}<br /><br />
+        </div>
+    </div>
+    <div id="sidebar-wrapper pull-right" class="col-md-2">
+        <div class="sidebar-nav-fixed pull-right affix">
+            <div class="well">
+                <ul class="nav">
+                    <legend style="background: rgba(0, 0, 40, 25); text-align: center; color: white;" class="nav-header"><small>Notifications</small></legend>
+                    <li><a href="#">Link</a>
+                    </li>
+                    <li><a href="#">Link</a>
+                    </li>
+                    <li><a href="#">Link</a>
+                    </li>
+                    <li><a href="#">Link</a>
+                    </li>
+                    <legend style="background: rgba(0, 0, 40, 25); text-align: center; color: white;" class="nav-header"><small>Contact us</small></legend>
+                    <footer style="margin-top: 2em; background-color: #F2F3F4; text-align: center;">
+                        <div class="h" style="background-color: #F2F3F4;">
+                            <div class="card-body">
+                                <h4 class="card-d" style="color: black;">Location</h4>
+                                <i class="fa ha fa-map-marker fa-lg"></i>
+                                <p style="font-family: 'Lobster'; color: #256B6B; font-size: 17px;">Nairobi, Kenya</p>
+                            </div>
+                        </div>
+                        <div class="social-icons">
+                            <a href="#"><span class="ha fa fa-facebook"></span></a>
+                            <a href="#"><span class="fa ha fa-instagram"></span></a>
+                            <a href="#"><span class="fa ha fa-twitter"></span></a>
+                            <a href="#"><span class="fa ha fa-linkedin"></span></a>
+                            <a href="#"><span class="fa ha fa-google-plus"></span></a>
+                        </div>
+                    </footer><br />
+                    <li style="color: skyblue;" href="mailto:chamatu2018@gmail.com"><i class="fa fa-envelope" style="color: skyblue;"></i> chamatu2018@gmail.com</li>
+                    <li style="color: skyblue;"><i class="fa fa-phone"></i>TEL: +254 700 546 241</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
+    <script>
+        /*Menu-toggle*/
+        $("#sidebarCollapse").click(function(e) {
+            e.preventDefault();
+            $("#wrapper").toggleClass("active");
+            $(this).toggleClass('active');
+        });
+
+        /*Scroll Spy*/
+        $('body').scrollspy({
+            target: '#spy',
+            offset: 80
+        });
+
+        /*Smooth link animation*/
+        $('a[href*=#]:not([href=#])').click(function() {
+            if (location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') || location.hostname == this.hostname) {
+
+                var target = $(this.hash);
+                target = target.length ? target : $('[name=' + this.hash.slice(1) + ']');
+                if (target.length) {
+                    $('html,body').animate({
+                        scrollTop: target.offset().top
+                    }, 1000);
+                    return false;
+                }
+            }
+        });
+    </script>
+    {% block body %} {% endblock %}
+
+
+</body>
+
+</html>

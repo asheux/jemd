@@ -1,0 +1,85 @@
+{% extends 'chama/index.html' %}
+
+<html>
+    <head>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+                integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css"
+                integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
+                integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+                crossorigin="anonymous"></script>
+        <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        {% load static %}
+        <link rel="stylesheet" href="{% static '/chama/styles.css' %}" type="text/css">
+        {% block head %}
+        <title>base</title>
+        {% endblock %}
+    </head>
+{% block content %}
+    <body>
+        <div class="container-fluid">
+            <h1 class="mt-4 mb-3" style="font-family: 'SIMPSON'; margin-left:1.5em;">Contact</h1>
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item">
+                    <a href="{% url 'chamatu:index' %}">Home</a>
+                </li>
+                <li class="breadcrumb-item active">Contact</li>
+            </ol>
+            <div class="row">
+                <div class="col-lg-8 mb-4">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d8171118.372306075!2d33.40995907806769!3d0.1540843327377215!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x182780d08350900f%3A0x403b0eb0a1976dd9!2sKenya!5e0!3m2!1sen!2ske!4v1509678605651" width="100%" height="400px" frameborder="0" style="border:0" allowfullscreen></iframe>
+                </div>
+                <div class="footer-info col-lg-4">
+                    <div>
+                        <h2>Contact us at any time</h2>
+                        <p class="p1"><i class="glyphicon glyphicon-globe"></i> 657 Nyeri Town, Nyeri, Kenya<br />
+                        <i class="glyphicon glyphicon-phone-alt"></i> +254 700546241<br />
+                        <a href="mailto:mboyabryan49@gmail.com"><i class="glyphicon glyphicon-envelope"></i> chamatu2018@gmail.com</a></p>
+                    </div>
+                    <div>
+                        <h2>Follow us</h2><br />
+                        <ul id="sk" class="fa-ul js medium-block-grid-2 small-block-grid-1">
+                            <li><a href="https://twitter.com/asheuhBM"><i class="ha fa fa-twitter"></i> Twitter</a></li>
+                            <li><a href="https://web.facebook.com/barryazah"><i class="ha fa fa-facebook"></i> Facebook</a></li>
+                            <li><a href="https://www.linkedin.com/in/mboya-bryan-007241135/"><i class="ha fa fa-linkedin"></i> Linkedin</a></li>
+                            <li><a href="https://plus.google.com/108235249302331235391"><i class="ha fa fa-google-plus"></i> Google+</a></li>
+                            <li><a href="https://github.com/asheuh"><i class="ha fa fa-github"></i> Github</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="page-header">
+                <h2 style="font-family: 'SIMPSON';">Contact form</h2>
+            </div>
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-md-8" style="border: 0.1px solid #06C0C0; padding: 20px;">
+                        {# Load the tag library #}
+                        {% load bootstrap3 %}
+
+                        {# Load CSS and JavaScript #}
+                        {% bootstrap_javascript %}
+
+                        {# Display django.contrib.messages as Bootstrap alerts #}
+                        {% bootstrap_messages %}
+
+                        {# Display a form #}
+                        <form action="" method="post" class="form">
+                            <h1 style="text-align: center; font-family: 'SIMPSON';">Get in touch</h1><br />
+                            {% csrf_token %}
+                            {% bootstrap_form form layout='inline' %}
+                            {% buttons %}
+                                <button class="btn btn-default" type="submit" name="submit" style="background-color: #45B39D; color:white;">
+                                    {% bootstrap_icon "star" %} Send message
+                                </button>
+                            {% endbuttons %}
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+{% endblock %}
+</html>

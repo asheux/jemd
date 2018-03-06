@@ -1,0 +1,21 @@
+{% extends 'chama/index.html' %}
+
+{% block content%}
+{% load humanize %}
+
+<section>
+	<header>
+		<h1>Recent posts</h1>
+	</header>
+	<ul>
+		{% for latest_post in latest_posts %}
+		<li>
+			<a href="{{ latest_blog_post.get_absolute_url }}">
+				<h2>{{ latest_post }}</h2>
+			</a>
+			- {{ latest_post.post_date|naturaltime }}
+		</li>
+		{% endfor %}
+	</ul>
+</section>
+{% endblock %}

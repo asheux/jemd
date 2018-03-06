@@ -1,0 +1,214 @@
+{% extends 'chama/index.html' %}
+
+{% load static %}
+{% block content %}
+<html>
+<head>
+    <style>
+    	.card-body ul ul a {
+            font-size: 0.9em !important;
+            padding-left: 30px !important;
+            background: #34495E;
+        }
+        .card-body ul li a:hover {
+            color: white;
+            background: #07101A;
+        }
+        .card-body ul {
+		    padding: 20px;
+		    list-style-type: none;
+		}
+
+		.card-body ul a {
+		    font-size: 1.2em !important;
+		    display: block;
+		    border-radius: 5px;
+		    margin-bottom: 5px;
+		    padding: 5px;
+		    text-align: center;
+		}
+		.card-body ul {
+		    padding: 15px 0;
+		    border-bottom: 1px solid white;
+		    border-top: 1px solid white;
+		}
+
+		#mpesa, #payp, #cardi, #answer4{
+			display: none;
+		}
+      
+    </style>
+   
+  </head>
+  <body>
+  	<div class="container-fluid">
+  		<div class="row" style="margin-top: 6em;">
+  			<div class="col-md-4 col-md-offset-2" style="border: 0.1px solid #06C0C0; padding: 20px; text-align: center;">
+  				<div class="main" id="sella">
+  					<div>
+	    				<legend class="awe">Make Payments</legend>
+	    			</div>
+	    			<div>
+	    				<p style="font-family: Trebuchet MS;">Please select your payment plan in the list provided</p>
+	    				<img src="{% static 'chama/images/safi.png' %}" style="width: 150px; height: 145px;">
+	    			</div>
+	    		</div>
+	    		<div class="blee" id="mpesa">
+	    			<div id="legend">
+		    			<legend class="awe">Payments using M-pesa</legend>
+		    		</div>
+			        <div>
+			        	<img src="{% static 'chama/images/download.jpeg' %}">
+			        </div><br /><br />
+			        <img src="{% static 'chama/images/saf.png' %}" style="width: 40px; height: 40px;">
+				    <div class="cont" style="margin-top: 59px;">
+				    	<p style="font-family: Trebuchet MS;">Fill out the form and send money to repay loan</p>
+			        	<form action="" method="post" id="payment-form">
+			        		{% csrf_token %}
+			        		<span class="payment-errors"></span>
+			        		<div class="form-row">
+			        			<input class="form-control" style="width:100%" type="number" placeholder="Amount to send to the bank (Ksh.)" name="number" data-stripe="number" size="20">
+			        		</div><br />
+			        		<button class="btn btn-default" style="background-color: #45B39D; color: white;">Lipa na m-pesa</button>
+			        	</form>
+			        </div>
+				</div>
+				<div id="payp">
+		    		<div id="legend">
+		    			<legend class="awe">Payments using paypal</legend>
+		    		</div>
+					<div>
+			        	<img src="{% static 'chama/images/fapa.png' %}">
+			        </div>	
+			        <div class="payl" style="margin-top: 5px;">
+			        	<p style="font-family: Trebuchet MS;">Fill out the form and send money to repay loan</p>
+						<form action="https://www.paypal.com/cgi-bin/webscr" method="post">
+						    <input type="hidden" name="cmd" value="_xclick">
+						    <input type="hidden" name="business" value="accounts@freelanceswitch.com"><br /><br />
+						    <input type="text" name="amount" class="form-control" placeholder="Amount to repay ($)">
+						    <input type="hidden" name="no_shipping" value="0">
+						    <input type="hidden" name="no_note" value="1">
+						    <input type="hidden" name="currency_code" value="USD">
+						    <input type="hidden" name="lc" value="AU">
+						    <input type="hidden" name="bn" value="PP-BuyNowBF">
+						    <input type="hidden" name="return" value="http://www.example.com/payment-complete/">
+						    <br /><br />
+						    <button type="submit" value="Pay with PayPal!" class="btn btn-default" style="background-color: #45B39D; color: white;">Pay with PayPal!</button>
+						</form>
+					</div>
+			    </div>
+			    <div class="ksasa" id="cardi">
+					<div class="row-fluid">
+				      	<form class="form-horizontal">
+				        	<fieldset>
+				          		<div id="legend">
+				            		<legend class="">Payment with card</legend>
+				          		</div>
+				          		<div>
+						        	<img src="{% static 'chama/images/download.png' %}" style="width: 150px; height: 150px;">
+						        </div><br />
+				          		<div class="control-group">
+				            		<div class="controls">
+				              			<input type="text" id="username" name="username" placeholder="Card Holder's Name" class="form-control">
+				            		</div>
+				          		</div><br />
+				          		<div class="control-group">
+				            		<div class="controls">
+				              			<input type="text" id="email" name="email" placeholder="Card Number" class="form-control">
+				            		</div>
+				          		</div>
+				          		<div class="control-group">
+				            		<label class="control-label" for="password" style="font-family: Trebuchet MS;">Card Expiry Date</label>
+				            		<div class="controls">
+				              			<select class="span3" name="expiry_month" id="expiry_month">
+							                <option></option>
+							                <option value="01">Jan (01)</option>
+							                <option value="02">Feb (02)</option>
+							                <option value="03">Mar (03)</option>
+							                <option value="04">Apr (04)</option>
+							                <option value="05">May (05)</option>
+							                <option value="06">June (06)</option>
+							                <option value="07">July (07)</option>
+							                <option value="08">Aug (08)</option>
+							                <option value="09">Sep (09)</option>
+							                <option value="10">Oct (10)</option>1
+							                <option value="11">Nov (11)</option>
+							                <option value="12">Dec (12)</option>
+				              			</select>
+				              			<select class="span2" name="expiry_year">
+							                <option value="13">2013</option>
+							                <option value="14">2014</option>
+							                <option value="15">2015</option>
+							                <option value="16">2016</option>
+							                <option value="17">2017</option>
+							                <option value="18">2018</option>
+							                <option value="19">2019</option>
+							                <option value="20">2020</option>
+							                <option value="21">2021</option>
+							                <option value="22">2022</option>
+							                <option value="23">2023</option>
+							            </select>
+				            		</div>
+				          		</div>
+				          		<div class="control-group">
+				            		<label class="control-label"  for="password_confirm"></label>
+				            		<div class="controls">
+				              			<input style="width: 30%;" type="password" id="password_confirm" name="password_confirm" placeholder="card CVV" class="form-control">
+				            		</div>
+				          		</div>
+				          		<div class="control-group" style="text-align: left; padding-left: 10px;">
+				            		<div class="controls">
+				              			<label class="checkbox" for="save_card">
+				                			<input type="checkbox" id="save_card" value="option1">
+				                				Save card on file?
+				              			</label>
+				            		</div>
+				          		</div>
+				          		<div class="control-group">
+				            		<div class="controls">
+				              			<button type="submit" value="Pay with PayPal!" class="btn btn-default" style="background-color: #45B39D; color: white;">Pay Now!</button>
+				            		</div>
+				          		</div>
+				        	</fieldset>
+				      </form>
+				    </div>
+				</div>
+			</div>
+			<div class="col-lg-6 mb-4">
+                <div class="card h-100" style="width: 50%; color: white; padding: 20px; background: rgba(0, 0, 10, 25);">
+                    <div class="card-body">
+                        <ul class="las" id="dss">
+                            <li><a href="#" id="pesa" style="font-family: 'Lobster';">M-pesa</a></li>
+                            <li><a href="#" id="credit" style="font-family: 'Lobster';">Credit card</a></li>
+                            <li><a href="#" id="paypal" style="font-family: 'Lobster';">Paypal</a></li>
+                            <li><a href="#" id="coin" style="font-family: 'Lobster;'">Bitcoin</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+		</div>
+    </div>
+
+    <script type="text/javascript">
+    	$(document).ready(function() {
+			$('#pesa').click(function(){
+				$('#sella').html($('#mpesa').html());
+			})
+
+			$('#paypal').click(function(){
+				$('#sella').html($('#payp').html());
+			})
+
+			$('#credit').click(function(){
+				$('#sella').html($('#cardi').html());
+			})
+
+			$('#coin').click(function(){
+				$('#sella').html($('#answer4').html());
+			})
+			
+		});
+	</script>
+  </body>
+{% endblock %}
+</html>

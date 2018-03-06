@@ -1,0 +1,52 @@
+{% extends 'chama/index.html' %}
+
+{% block content %}
+<div class="container-fluid">
+    <h1 class="mt-4 mb-3" style="font-family: 'SIMPSON'; margin-left: 1.5em;">Admin posts</h1>
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item">
+            <a href="{% url 'chamatu:index' %}">Home</a>
+        </li>
+        <li class="breadcrumb-item active">Post</li>
+    </ol>
+	{% load el_pagination_tags %}
+	{% load markdown_deux_tags %}
+
+	{% if posts %}
+    {% paginate posts %}
+
+    {% for post in posts %}
+        <article itemscope itemtype="http://schema.org/Article">
+            <header itemprop="name">
+                <a href="{{ post.get_absolute_url }}">
+                    <h1 style="font-family: 'SIMPSON';">{{ post.title }}</h1>
+                </a>
+            </header><br />
+
+            <p class="publish-data">
+                Posted on
+                <time itemprop="datePublished" datetime="{{ post.post_date|date:'Y-m-d H:i:s' }}">
+                    {{ post.post_date }}
+                </time>
+                by
+                <span itemprop="author">{{ post.posted_by }}</span> -
+                <a style="color: #4AACF3;" itemprop="discussionUrl" href="{{ post.get_absolute_url }}#comments">
+                    <span itemprop="comment">
+                        {{ post.comment_count }} <i class="fa fa-comments" aria-hidden="true"></i>comment{{ post.comment_count|pluralize }}
+                    </span>
+                </a>
+            </p>
+
+            <span itemprop="articleBody">{{ post.bodytext|markdown }}</span>
+            <a style="color: #4AACF3;" class="btn right" href="{{ post.get_absolute_url }}">Read more</a>
+            <span class="hidden" itemprop="wordCount">{{ post.bodytext|wordcount }}</span>
+        </article>
+    {% endfor %}
+
+    {% show_more "Load more blog posts" %}
+
+	{% else %}
+		<p>There's no blog entries...</p>
+	{% endif %}
+</div>
+{% endblock %}

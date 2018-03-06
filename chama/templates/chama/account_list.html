@@ -1,0 +1,113 @@
+{% extends 'chama/index.html' %}
+
+{% load static %}
+{% block content %}
+<style>
+	.card-body ul ul a {
+        font-size: 0.9em !important;
+        padding-left: 30px !important;
+        background: #34495E;
+    }
+    .card-body ul li a:hover {
+        color: white;
+        background: #07101A;
+    }
+    .card-body ul {
+	    padding: 20px;
+	    list-style-type: none;
+	}
+
+	.card-body ul a {
+	    font-size: 1.2em !important;
+	    display: block;
+	    border-radius: 5px;
+	    margin-bottom: 5px;
+	    padding: 5px;
+	    text-align: center;
+	}
+	.card-body ul {
+	    padding: 15px 0;
+	    border-bottom: 1px solid white;
+	    border-top: 1px solid white;
+	}
+
+	#main, #edu{
+		display: none;
+	}
+  
+</style>
+<body>
+    <div style="margin-left: 2em; margin-top: 3em;">
+    	<div class="row">
+            <div class="col-md-4">
+                <div class="card h-100" style="width: 100%; color: white; padding: 20px; background: rgba(0, 0, 10, 25); margin-top: 3em;">
+                	<h1 style="text-align: center;">Apply now</h1>
+                    <div class="card-body">
+                        <ul class="las" id="dss">
+	                    	{% load el_pagination_tags %}
+							{% load markdown_deux_tags %}
+
+							{% if accounts %}
+						    {% paginate accounts %}
+
+			        		{% for account in accounts %}
+                            <li><a href="{{ account.get_absolute_url }}" id="ma" style="font-family: 'Lobster';">{{ account.account_name }}</a></li>
+	                        {% endfor %}
+				            {% show_more "Load more accounts" %}
+
+							{% else %}
+								<p>There's no account entries...</p>
+							{% endif %}
+                        </ul>
+                    </div>
+                </div>
+                {% if user.is_superuser %}
+                <div style="margin-top: 1em; text-align: center; color: blue; font-size: 20px;">
+                	<a href="#">Add another account</a>
+                </div>
+                {% endif %}
+            </div>
+            <div id="peach" class="col-md-6" style=" margin-top: 3em;">
+            	<h1 style="color: #000;">About the savings account</h1>
+            	<p>
+            		We strongly believes that women have unique mental strengths.
+                    Neither conformist nor rigid, women find many pathways to their goals and work toward getting a job done rather than getting their way.
+                    Women, utilize their strengths to lead children, partners, neighbors, and colleagues to better lives;
+                    believing that every woman has the capacity to be strong no matter how beaten down she feels.
+                    We strongly believes that women have unique mental strengths.
+                    Neither conformist nor rigid, women find many pathways to their goals and work toward getting a job done rather than getting their way.
+                    Women, utilize their strengths to lead children, partners, neighbors, and colleagues to better lives;
+                    believing that every woman has the capacity to be strong no matter how beaten down she feels.
+                    We strongly believes that women have unique mental strengths.
+                    Neither conformist nor rigid, women find many pathways to their goals and work toward getting a job done rather than getting their way.
+                    Women, utilize their strengths to lead children, partners, neighbors, and colleagues to better lives;
+                    believing that every woman has the capacity to be strong no matter how beaten down she feels.
+                    We strongly believes that women have unique mental strengths.
+                    Neither conformist nor rigid, women find many pathways to their goals and work toward getting a job done rather than getting their way.
+                    Women, utilize their strengths to lead children, partners, neighbors, and colleagues to better lives;
+                    believing that every woman has the capacity to be strong no matter how beaten down she feels.
+                    We strongly believes that women have unique mental strengths.
+                    Neither conformist nor rigid, women find many pathways to their goals and work toward getting a job done rather than getting their way.
+                    Women, utilize their strengths to lead children, partners, neighbors, and colleagues to better lives;
+                    believing that every woman has the capacity to be strong no matter how beaten down she feels.
+                    We strongly believes that women have unique mental strengths.
+                    Neither conformist nor rigid, women find many pathways to their goals and work toward getting a job done rather than getting their way.
+                    Women, utilize their strengths to lead children, partners, neighbors, and colleagues to better lives;
+                    believing that every woman has the capacity to be strong no matter how beaten down she feels.
+            	</p>
+            </div>
+        </div>
+    </div>
+    <!--<script type="text/javascript">
+    	$(document).ready(function() {
+			$('#ma').click(function(){
+				$('#peach').html($('#main').html());
+			})
+
+			$('#ea').click(function(){
+				$('#peach').html($('#edu').html());
+			})	
+		});
+	</script>-->
+</body>
+{% endblock %}

@@ -1,0 +1,103 @@
+{% extends 'chama/index.html' %}
+<html>
+    <head>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+                integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css"
+                integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
+                integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+                crossorigin="anonymous"></script>
+        <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        {% load static %}
+        <link rel="stylesheet" href="{% static '/chama/css/styles.css' %}" type="text/css">
+        {% block head %}
+        <title>base</title>
+        {% endblock %}
+        <style>
+            .glyphicon {
+                margin-bottom: 10px;margin-right: 10px;
+            }
+            small {
+                display: block;
+                line-height: 1.428571429;
+                color: #999;
+            }
+        </style>
+    </head>
+{% block content %}
+    <body>
+    <div class="container-fluid">
+        <h1 class="mt-4 mb-3" style="font-family: 'SIMPSON'; margin-left: 1.5em;">My account</h1>
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item">
+                <a href="{% url 'chamatu:index' %}">Home</a>
+            </li>
+            <li class="breadcrumb-item active">Profile</li>
+        </ol>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="well well-md">
+                    <div class="row">
+                        <div class="col-sm-4">
+                            <img src="{{ user.profile.photo_url|default_if_none:'#' }}" alt="" width="350" class="img-rounded img-responsive" />
+                            <br />
+                            {# Load the tag library #}
+                            {% load bootstrap3 %}
+
+                            {# Load CSS and JavaScript #}
+                            {% bootstrap_javascript %}
+
+                            {# Display django.contrib.messages as Bootstrap alerts #}
+                            {% bootstrap_messages %}
+                            {% load crispy_forms_tags %}
+                            {# Display a form #}
+                            <form action="" method="post" enctype="multipart/form-data">
+                                {% csrf_token %}
+                                {% bootstrap_form profile_pic layout='inline' %}
+                                {% buttons %}
+                                 <input type="submit" class="btn btn-default" value="Update" style="background-color: #45B39D; color: white;" />
+                                {% endbuttons %}
+
+                            </form>
+                        </div>
+                        <div class="col-sm-8">
+                            <h1>{{ user.first_name }} {{ user.last_name }}</h1>
+                            <small>
+                                <cite title="San Francisco, USA">{{ user.profile.city }}, {{ user.profile.country }}<i class="glyphicon glyphicon-map-marker"></i></cite>
+                            </small><br><br>
+                            <p style="color: #45B39D;">
+                                <i class="glyphicon glyphicon-envelope" style="color: black;"></i> {{ user.email }}
+                                <br /><br />
+                                <i class="glyphicon glyphicon-globe" style="color: black;"></i> {{ user.profile.organization }}
+                                <br /><br />
+                                <i class="glyphicon glyphicon-gift" style="color: black;"></i> {{ user.profile.birthdate }}
+                                <br /><br />
+                                <i class="glyphicon glyphicon-phone" style="color: black;"></i> {{ user.profile.phone }}
+                                <br /><br />
+                                <i style="color: black;"></i>Bio:<br /><br />{{ user.profile.description }}
+                            </p>
+                            <br />
+                            <div class="container-fluid" style="padding: 10px;">
+                                <a href="https://www.facebook.com" class="btn btn-default btn-social btn-round"
+                                   target="_blank"><i class="fa fa-facebook-square"></i></a>
+                                <a href="https://twitter.com" class="btn btn-default btn-social btn-round"
+                                   target="_blank"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+                                <a href="https://plus.google.com" class="btn btn-default btn-social btn-round"
+                                   target="_blank"><i class="fa fa-google-plus-square"></i></a>
+                                <a href="https://www.instagram.com" class="btn btn-default btn-social btn-round"
+                                   target="_blank"><i class="fa fa-instagram"></i></a>
+                                <a href="https://www.youtube.com" class="btn btn-default btn-social btn-round"
+                                   target="_blank"><i class="fa fa-youtube"></i></a>
+                                <button type="submit" class="btn btn-default pull-right" style="background-color: #45B39D; color: white;"><a href="{% url 'chamatu:edit_profile' %}" >Edit</a></button>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </body>
+{% endblock %}

@@ -1,0 +1,157 @@
+<html>
+    <head>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+                integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css"
+                integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+        <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        {% load static %}
+        <link rel="stylesheet" href="{% static '/chama/css/styles.css' %}" type="text/css">
+        {% block head %}
+        <title>base</title>
+        {% endblock %}
+        <style>
+
+            html {
+              position: relative;
+              min-height: 100%;
+            }
+            body {
+              margin-bottom: 60px;
+            }
+            #footer {
+                height: 580px;
+                margin: 0 auto;
+                color: #fff;
+                clear: both;
+                padding: 2em 2em;
+                position: relative;
+                top: 110px;
+            }
+            body > .container {
+              padding: 60px 15px 0;
+            }
+            code {
+              font-size: 80%;
+            }
+            .social:hover {
+                 -webkit-transform: scale(1.1);
+                 -moz-transform: scale(1.1);
+                 -o-transform: scale(1.1);
+            }
+            .social {
+                 -webkit-transform: scale(0.8);
+                 /* Browser Variations: */
+                 
+                 -moz-transform: scale(0.8);
+                 -o-transform: scale(0.8);
+                 -webkit-transition-duration: 0.5s;
+                 -moz-transition-duration: 0.5s;
+                 -o-transition-duration: 0.5s;
+            }
+             
+            #social-fb:hover {
+                 color: #3B5998;
+            }
+             #social-tw:hover {
+                 color: #4099FF;
+            }
+            #social-gp:hover {
+                 color: #d34836;
+            }
+            #social-em:hover {
+                 color: #f39c12;
+            }
+        </style>
+    </head>
+    <body>
+    <header>
+        <nav class="navbar navbar-default navbar-fixed-top" style="background: rgba(0, 0, 10, 25);">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                </div>
+                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                    <ul class="nav navbar-nav">
+                        <li><h3 style="font-family:FontAwesome; color: white;"><a style="color: white;" href="{% url 'site' %}">@KWSGA<sup><small style="color: white;">2018</small></sup></a></h3></li>
+                    </ul>
+                    <ul class="nav navbar-nav navbar-right">
+                        <li><a href="{% url 'chamatu:login' %}" class="glyphicon glyphicon-log-in" style="color: white"> Login</a></li>
+                        <li><a href="{% url 'chamatu:signup' %}" class="glyphicon glyphicon-user" style="color: white"> Signup</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+    {% block content %}
+
+    {% endblock %}
+
+    <div id="footer" style="background-image: url(/static/chama/images/footer-bg.jpg);">
+        <div class="container">
+            <div class="row">
+                <h1 style="text-align: center; color: white;" class="footertext">ABOUT US</h1>
+                <br>
+                <div class="col-md-4">
+                    <div>
+                        <h2>Contact us at any time</h2>
+                        <p class="p1"><i style="color: #256B6B;" class="fa fa-globe"></i> 657 Nyeri Town, Nyeri, Kenya<br />
+                        <i style="color: #256B6B;" class="fa fa-phone"></i> +254 700546241<br />
+                        <a href="mailto:mboyabryan49@gmail.com"><i style="color: #256B6B;" class="fa fa-envelope"></i> chamatu2018@gmail.com</a></p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <center>
+                        <div class="h" style="background-color: transparent;">
+                            <div class="card-body">
+                                <h4 class="card-d" style="color: #256B6B;">Location</h4>
+                                <i style="font-size: 40px;" class="fa ha fa-map-marker fa-lg"></i>
+                                <p style="font-family: 'Lobster'; color: #256B6B; font-size: 17px;"">Nairobi, Kenya</p>
+                            </div>
+                        </div>
+                    </center>
+                </div>
+                <div class="col-md-4">
+                      <img src="http://i65.tinypic.com/rwufyv.jpg" class="img-circle" alt="...">
+                      <br>
+                      <h4 class="footertext">Sponsers</h4>
+                      <p class="footertext">We thank safaricom for being our special sponsers all through.<br>
+                </div>
+                </div>
+                <div class="row">
+                <div class="text-center center-block">
+                        <br />
+                    <a href="https://www.facebook.com/"><i id="social-fb" class="fa fa-facebook-square fa-3x social"></i></a>
+                    <a href="https://twitter.com/"><i id="social-tw" class="fa fa-twitter-square fa-3x social"></i></a>
+                    <a href="https://plus.google.com/"><i id="social-gp" class="fa fa-google-plus-square fa-3x social"></i></a>
+                    <a href="mailto:chamatu2018@gmail.com"><i id="social-em" class="fa fa-envelope-square fa-3x social"></i></a>
+                </div><br /><br /><br />
+            </div>
+        </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js"
+            integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh"
+            crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js"
+            integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ"
+            crossorigin="anonymous"></script>
+    <script>
+        $(document).ready(function () {
+            $('#sidebarCollapse').on('click', function () {
+                $('#sidebar').toggleClass('active');
+                $(this).toggleClass('active');
+            });
+        });
+    </script>
+
+    </body>
+</html>

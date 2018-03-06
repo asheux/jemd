@@ -1,0 +1,95 @@
+{% extends 'chama/index.html' %}
+{% load static %}
+<html>
+{% block content %}
+    <body>
+        <div class="container-fluid">
+            <h1 class="mt-4 mb-3" style="font-family: 'SIMPSON'; margin-left: 1.5em;">About us</h1>
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item">
+                    <a href="{% url 'chamatu:index' %}">Home</a>
+                </li>
+                <li class="breadcrumb-item active">About</li>
+            </ol>
+            <div class="row">
+                <div class="col-lg-12">
+                    <img class="img-fluid rounded mb-4" src="{% static 'chama/images/li.jpeg' %}" style="width: 100%; height: 60%;" alt="">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="page-header">
+                        <h2 style="font-family: 'SIMPSON';">About KWSGA</h2>
+                    </div>
+                    <p>
+                        We strongly believes that women have unique mental strengths.
+                        Neither conformist nor rigid, women find many pathways to their goals and work toward getting a job done rather than getting their way.
+                    </p>
+                    <p>Women, utilize their strengths to lead children, partners, neighbors, and colleagues to better lives;</p>
+                    <p>believing that every woman has the capacity to be strong no matter how beaten down she feels.</p>
+                </div>
+            </div>
+            <h2 style="font-family: 'SIMPSON';">Our Team</h2>
+            <div class="row">
+                <div class="col-lg-4 mb-4">
+                    <div class="card h-100 text-center">
+                        <img class="card-img-top" src="http://placehold.it/350x250" alt="">
+                        <div class="card-body">
+                            <h4 class="card-title">Bryan Mboya</h4>
+                            <h6 class="card-subtitle mb-2 text-muted">The CEO</h6>
+                            <p class="card-text">
+                                Women, utilize their strengths to lead children, partners, neighbors, and colleagues to better lives;
+                                believing that every woman has the capacity to be strong no matter how beaten down she feels.
+                            </p>
+                        </div>
+                        <div class="card-footer">
+                            <a href="#">mboyabryan49@gmail.com</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 mb-4">
+                    <div class="card h-100 text-center">
+                        <img class="card-img-top" src="http://placehold.it/350x250" alt="">
+                        <div class="card-body">
+                            <h4 class="card-title">Mercy Njeri</h4>
+                            <h6 class="card-subtitle mb-2 text-muted">The Manager</h6>
+                            <p class="card-text">
+                                Women, utilize their strengths to lead children, partners, neighbors, and colleagues to better lives;
+                                believing that every woman has the capacity to be strong no matter how beaten down she feels.
+                            </p>
+                        </div>
+                        <div class="card-footer">
+                            <a href="#">sella@gmail.com</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 mb-4">
+                    <div class="card h-100 text-center">
+                        <img class="card-img-top" src="http://placehold.it/350x250" alt="">
+                        <div class="card-body">
+                            <h4 class="card-title">Jack Bryan</h4>
+                            <h6 class="card-subtitle mb-2 text-muted">The CTO</h6>
+                            <p class="card-text">
+                                Women, utilize their strengths to lead children, partners, neighbors, and colleagues to better lives;
+                                believing that every woman has the capacity to be strong no matter how beaten down she feels.
+                            </p>
+                        </div>
+                        <div class="card-footer">
+                            <a href="#">jackbryan@gmail.com</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div><br /><br /><br /><br /><br />
+        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+                integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+                crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js"
+                integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh"
+                crossorigin="anonymous"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js"
+                integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ"
+                crossorigin="anonymous"></script>
+  </body>
+{% endblock %}
+</html>
