@@ -73,7 +73,7 @@
         }
         
         .fa {
-            color: #45B39D;
+            color: #F39C12;
         }
         
         .a {
@@ -134,7 +134,7 @@
         }
         
         h1 {
-            color: #45B39D;
+            color: #000000;
         }
     </style>
 </head>
@@ -176,7 +176,7 @@
     <div id="wrapper" class="col-md-10">
         <div id="sidebar-wrapper" style="background: rgba(0, 0, 10, 25);">
             <div class="sidebar-header" style="background: rgba(0, 0, 0, 0.45); margin-top: 3.8em;">
-                <h3 style="font-family:FontAwesome; color: #45B39D;"><a href="{% url 'chamatu:index' %}">@KWSGA<sup><small style="color: #45B39D;">2018</small></sup></a></h3>
+                <h3 style="font-family:FontAwesome; color: #F39C12;"><a href="{% url 'chamatu:index' %}">JEMD<sup><small style="color: #F39C12;">2020</small></sup></a></h3>
             </div>
             <nav id="sidebar">
                 <ul class="list-unstyled components">
@@ -185,10 +185,10 @@
                             <a href="{% url 'chamatu:index' %}" style="font-family: 'Lobster';"><i class="fa fa-dashboard fa-lg"></i>  Dashboard</a>
                         </li>
                         <li>
-                            <a href="{% url 'chamatu:about' %}" style="font-family: 'Lobster';"><i class="fa fa-info-circle fa-lg"></i>  About</a>
+                            <a href="{% url 'chamatu:about' %}" style="font-family: 'Lobster';"><i class="fa fa-info-circle fa-lg"></i>  About Jemd</a>
                         </li>
                         <li>
-                            <a href="{% url 'chamatu:post_list_view' %}" style="font-family: 'Lobster';"><i class="fa fa-rss-square" aria-hidden="true"></i>  Admin posts</a>
+                            <a href="{% url 'chamatu:post_list_view' %}" style="font-family: 'Lobster';"><i class="fa fa-rss-square" aria-hidden="true"></i>  Blog posts</a>
                         </li>
                         <li href="#homeSubmenu" data-toggle="collapse" aria-expanded="false">
                             <a href="#" style="font-family: 'Lobster';"><i class="fa fa-info-circle"></i> Projects <span class="caret pull-right" style="color:white;"></span></a>
@@ -203,28 +203,22 @@
                             </li>
                             <ul class="collapse list-unstyled" id="pageSubmenu">
                                 {% if user.is_superuser %}
-                                <li><a href="{% url 'savings:savings' %}" style="font-family: 'Lobster;'">Manage savings</a></li>
-                                <li><a href="{% url 'savings:withdraw' %}" style="font-family: 'Lobster;'">Withdraw savings</a></li>
-                                <li><a href="{% url 'savings:deposit' %}" style="font-family: 'Lobster;'">Deposit savings</a></li>
                                 <li><a href="{% url 'chamatu:view_profile' %}" style="font-family: 'Lobster';">Profile</a></li>
                                 <li><a href="{% url 'chamatu:edit_profile' %}" style="font-family: 'Lobster';">Edit profile</a></li>
-                                <li><a href="{% url 'chamatu:savings' %}" style="font-family: 'Lobster';">Savings account</a></li>
                                 <li><a href="{% url 'chamatu:change_password' %}" style="font-family: 'Lobster';">Change Password</a></li>
                                 {% else %}
                                 <li><a href="{% url 'chamatu:view_profile' %}" style="font-family: 'Lobster';">Profile</a></li>
                                 <li><a href="{% url 'chamatu:edit_profile' %}" style="font-family: 'Lobster';">Edit profile</a></li>
-                                <li><a href="{% url 'chamatu:savings' %}" style="font-family: 'Lobster';">Savings account</a></li>
-                                <li><a href="{% url 'chamatu:borrow_loan' %}" style="font-family: 'Lobster;'">Borrow</a></li>
                                 <li><a href="{% url 'chamatu:payments' %}" style="font-family: 'Lobster;'">Make payments</a></li>
                                 <li><a href="{% url 'chamatu:change_password' %}" style="font-family: 'Lobster';">Change Password</a></li>
                                 {% endif %}
                             </ul>
                         </li>
                         <li>
-                            <a href="#" style="font-family: 'Lobster';"><i class="fa fa-users fa-sm"></i> users</a>
+                            <a href="#" style="font-family: 'Lobster';"><i class="fa fa-users fa-sm"></i> Users</a>
                         </li>
                         <li>
-                            <a href="{% url 'contact' %}" style="font-family: 'SIMPSON';"><i class="fa fa-phone"></i>  contact</a>
+                            <a href="{% url 'contact' %}" style="font-family: 'SIMPSON';"><i class="fa fa-phone"></i>  Contact us</a>
                         </li>
                 </ul>
             </nav>
@@ -233,7 +227,7 @@
                     <div class="card-body">
                         <h4 class="card-d" style="color: white;">Location</h4>
                         <i class="fa ha fa-map-marker fa-lg"></i>
-                        <p style="font-family: 'Lobster'; color: #45B39D; font-size: 17px;">Kenya</p>
+                        <p style="font-family: 'Lobster'; color: #F39C12; font-size: 17px;">Kenya</p>
                     </div>
                 </div><br /><br />
                 <div class="social-icons">
@@ -259,7 +253,10 @@
                     <div class="col-md-12">
                         <div class="well well-md">
                             <div class="row">
-                                <div class="col-sm-6">
+                                <div class="col-sm-4">
+                                    <img src="{{ user.profile.photo_url|default_if_none:'#' }}" alt="" width="350" class="img-rounded img-responsive" />
+                                </div>
+                                <div class="col-sm-8">
                                     <h1>{{ user.first_name }} {{ user.last_name }}</h1>
                                     <small>
                                             <cite title="San Francisco, USA">{{ user.profile.city }}, {{ user.profile.country }}<i class="glyphicon glyphicon-map-marker"></i></cite>
@@ -283,6 +280,13 @@
                         </div>
                     </div>
                 </div>
+                <div class="row">
+                    <div class="container-fluid">
+                        <div class="page-header">
+                            <h2 style="font-family: 'SIMPSON';">Your monthly nutrition stats</h2>
+                        </div>
+                    </div>
+                </div>
             </div>
             {% endblock %}<br /><br />
         </div>
@@ -292,13 +296,17 @@
             <div class="well">
                 <ul class="nav">
                     <legend style="background: rgba(0, 0, 40, 25); text-align: center; color: white;" class="nav-header"><small>Notifications</small></legend>
-                    <li><a href="#">Link</a>
+                    <li>
+                        <a href="#">Notification #1</a>
                     </li>
-                    <li><a href="#">Link</a>
+                    <li>
+                        <a href="#">Notification #2</a>
                     </li>
-                    <li><a href="#">Link</a>
+                    <li>
+                        <a href="#">Notification #3</a>
                     </li>
-                    <li><a href="#">Link</a>
+                    <li>
+                        <a href="#">Notification #4</a>
                     </li>
                     <legend style="background: rgba(0, 0, 40, 25); text-align: center; color: white;" class="nav-header"><small>Contact us</small></legend>
                     <footer style="margin-top: 2em; background-color: #F2F3F4; text-align: center;">
@@ -317,7 +325,7 @@
                             <a href="#"><span class="fa ha fa-google-plus"></span></a>
                         </div>
                     </footer><br />
-                    <li style="color: skyblue;" href="mailto:chamatu2018@gmail.com"><i class="fa fa-envelope" style="color: skyblue;"></i> chamatu2018@gmail.com</li>
+                    <li style="color: skyblue;" href="mailto:info@jemd.com"><i class="fa fa-envelope"></i> info@jemd.com</li>
                     <li style="color: skyblue;"><i class="fa fa-phone"></i>TEL: +254 700 546 241</li>
                 </ul>
             </div>

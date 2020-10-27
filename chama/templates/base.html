@@ -67,8 +67,8 @@
     </head>
     <body>
     <header>
-        <nav class="navbar navbar-default navbar-fixed-top" style="background: rgba(0, 0, 10, 25);">
-            <div class="container-fluid">
+        <nav class="navbar navbar-default navbar-fixed-top" style="height: 65px; background: rgba(0, 0, 10, 25);">
+            <div class="container">
                 <div class="navbar-header">
                     <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
                         <span class="sr-only">Toggle navigation</span>
@@ -79,7 +79,7 @@
                 </div>
                 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                     <ul class="nav navbar-nav">
-                        <li><h3 style="font-family:FontAwesome; color: white;"><a style="color: white;" href="{% url 'site' %}">@KWSGA<sup><small style="color: white;">2018</small></sup></a></h3></li>
+                        <li><h3 style="font-family:FontAwesome; color: white;"><a style="color: #F39C12;" href="{% url 'site' %}">JEMD<sup><small style="color: #F39C12;">2020</small></sup></a></h3></li>
                     </ul>
                     <ul class="nav navbar-nav navbar-right">
                         <li><a href="{% url 'chamatu:login' %}" class="glyphicon glyphicon-log-in" style="color: white"> Login</a></li>
@@ -101,27 +101,27 @@
                 <div class="col-md-4">
                     <div>
                         <h2>Contact us at any time</h2>
-                        <p class="p1"><i style="color: #256B6B;" class="fa fa-globe"></i> 657 Nyeri Town, Nyeri, Kenya<br />
-                        <i style="color: #256B6B;" class="fa fa-phone"></i> +254 700546241<br />
-                        <a href="mailto:mboyabryan49@gmail.com"><i style="color: #256B6B;" class="fa fa-envelope"></i> chamatu2018@gmail.com</a></p>
+                        <p class="p1"><i style="color: #F39C12;" class="fa fa-globe"></i> 1234 Nairobi, Kenya<br />
+                        <i style="color: #F39C12;" class="fa fa-phone"></i> +254 700546241<br />
+                        <a href="mailto:info@jemd.com"><i style="color: #F39C12;" class="fa fa-envelope"></i> info@jemd.com</a></p>
                     </div>
                 </div>
                 <div class="col-md-4">
                     <center>
                         <div class="h" style="background-color: transparent;">
                             <div class="card-body">
-                                <h4 class="card-d" style="color: #256B6B;">Location</h4>
+                                <h4 class="card-d" style="color: #F39C12;">Location</h4>
                                 <i style="font-size: 40px;" class="fa ha fa-map-marker fa-lg"></i>
-                                <p style="font-family: 'Lobster'; color: #256B6B; font-size: 17px;"">Nairobi, Kenya</p>
+                                <p style="font-family: 'Lobster'; color: #F39C12; font-size: 17px;"">Nairobi, Kenya</p>
                             </div>
                         </div>
                     </center>
                 </div>
                 <div class="col-md-4">
-                      <img src="http://i65.tinypic.com/rwufyv.jpg" class="img-circle" alt="...">
+                    <img src="{% static 'chama/images/mindpload_better-min.jpg' %}" class="img-circle" style="height: 100px; width: 100px;" alt="...">
                       <br>
                       <h4 class="footertext">Sponsers</h4>
-                      <p class="footertext">We thank safaricom for being our special sponsers all through.<br>
+                      <p class="footertext">We thank Mindpload for being our special sponsers all through.<br>
                 </div>
                 </div>
                 <div class="row">
@@ -130,8 +130,8 @@
                     <a href="https://www.facebook.com/"><i id="social-fb" class="fa fa-facebook-square fa-3x social"></i></a>
                     <a href="https://twitter.com/"><i id="social-tw" class="fa fa-twitter-square fa-3x social"></i></a>
                     <a href="https://plus.google.com/"><i id="social-gp" class="fa fa-google-plus-square fa-3x social"></i></a>
-                    <a href="mailto:chamatu2018@gmail.com"><i id="social-em" class="fa fa-envelope-square fa-3x social"></i></a>
-                </div><br /><br /><br />
+                    <a href="mailto:info@jemd.com"><i id="social-em" class="fa fa-envelope-square fa-3x social"></i></a>
+                </div>
             </div>
         </div>
     </div>

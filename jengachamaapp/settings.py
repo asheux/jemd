@@ -155,12 +155,12 @@ WSGI_APPLICATION = 'jengachamaapp.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'chamatu',
-        'USER': 'root',
-        'PASSWORD': '@bashtech1234',
-        'HOST': 'localhost',
-        'PORT': '',
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'lvqkfhql',
+        'USER': 'lvqkfhql',
+        'PASSWORD': 'VZ9xXYBpW8UEIPIYxt4T85kf1oFFinF-',
+        'HOST': 'drona.db.elephantsql.com',
+        'PORT': '5432',
     }
 }
 

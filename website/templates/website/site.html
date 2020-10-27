@@ -50,65 +50,63 @@
         </style>
     </head>
     <body>
+        <div>
+            <div id="myCarousel" class="carousel slide" data-ride="carousel" style="margin-top: 2.9em;">
+                <ol class="carousel-indicators">
+                       <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+                       <li data-target="#myCarousel" data-slide-to="1"></li>
+                       <li data-target="#myCarousel" data-slide-to="2"></li>
+                       <li data-target="#myCarousel" data-slide-to="3"></li>
+                   </ol>
+                   <div class="carousel-inner">
+                       <div class="item">
+                           <img src="{% static 'chama/images/cool.jpg' %}" alt="">
+                       </div>
+                       <div class="item active">
+                           <img src="{% static 'chama/images/nutrit.jpg' %}" style="height: 550px; width: 100%;" alt="">
+                           <div class="container">
+                               <div class="carousel-caption">
+                                   <a class="btn btn-large btn-primary" href="{% url 'site' %}">Go to website</a>
+                               </div>
+                           </div>
+                       </div>
+                       <div class="item">
+                           <img src="{% static 'chama/images/supa.jpg' %}" alt="">
+                       </div>
+                   </div>
+                   <a class="left carousel-control" href="#myCarousel" data-slide="prev">
+                       <span class="glyphicon glyphicon-chevron-left"></span>
+                       <span class="sr-only">Previous</span>
+                   </a>
+                   <a class="right carousel-control" href="#myCarousel" data-slide="next">
+                       <span class="glyphicon glyphicon-chevron-right"></span>
+                       <span class="sr-only">Next</span>
+                   </a>
+            </div>
+        </div><br /><br /><br /><br />
         <div class="container">
             <div id="page-content-wrapper" class="col-md-12">
                 <div class="page-content inset" data-spy="scroll" data-target="#spy" style="margin-top: -3.5em;">
-                    <div>
-                        <div>
-                            <div id="myCarousel" class="carousel slide" data-ride="carousel" style="margin-top: 2.9em;">
-                                <ol class="carousel-indicators">
-                                    <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-                                    <li data-target="#myCarousel" data-slide-to="1"></li>
-                                    <li data-target="#myCarousel" data-slide-to="2"></li>
-                                    <li data-target="#myCarousel" data-slide-to="3"></li>
-                                </ol>
-                                <div class="carousel-inner">
-                                    <div class="item">
-                                        <img src="{% static 'chama/images/cool.jpg' %}" alt="">
-                                    </div>
-                                    <div class="item active">
-                                        <img src="{% static 'chama/images/yaa.png' %}" alt="">
-                                        <div class="container">
-                                            <div class="carousel-caption">
-                                                <a class="btn btn-large btn-primary" href="{% url 'site' %}">Go to website</a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="item">
-                                        <img src="{% static 'chama/images/supa.jpg' %}" alt="">
-                                    </div>
-                                </div>
-                                <a class="left carousel-control" href="#myCarousel" data-slide="prev">
-                                    <span class="glyphicon glyphicon-chevron-left"></span>
-                                    <span class="sr-only">Previous</span>
-                                </a>
-                                <a class="right carousel-control" href="#myCarousel" data-slide="next">
-                                    <span class="glyphicon glyphicon-chevron-right"></span>
-                                    <span class="sr-only">Next</span>
-                                </a>
-                            </div>
-                        </div><br /><br /><br /><br />
+                    <div> 
                         <div>
                             <div class="row">
                                 <div class="col-sm-4">
                                     <a href="https://www.amazon.com/Power-Women-Harness-Strengths-Community/dp/B005SNN0ZG">
-                                        <img src="{% static '/chama/images/bobo.jpg' %}" style="width: 80%;" class="img-responsive">
+                                        <img src="{% static '/chama/images/bobo.png' %}" style="width: 80%;" class="img-responsive">
                                     </a>
                                 </div>
                                 <div class="col-sm-8">
                                     <div class="page-header">
-                                        <h2 style="font-family: 'SIMPSON';">The power of women</h2>
+                                        <h2 style="font-family: 'SIMPSON';">Why you need to take care of your health?</h2>
                                     </div>
                                     <p style="color: black; font-family: 'SIMPSON'; font-size: 18px;">
-                                        We strongly believes that women have unique mental strengths.
-                                        Neither conformist nor rigid, women find many pathways to their goals and work toward getting a job done rather than getting their way.
-                                        Women, utilize their strengths to lead children, partners, neighbors, and colleagues to better lives;
-                                        believing that every woman has the capacity to be strong no matter how beaten down she feels.
-                                    </p>
-                                    <p style="color: black; font-family: 'SIMPSON'; font-size: 18px;">
-                                        Women are extraordinarily hard on themselves. They scrutinize their flaws, asking “Am I a good lover?
-                                        A good mother? Successful in my career?” They get preoccupied with ways they do not measure up, twisting
-                                        themselves into knots to fix problems no one else can see. Find for inspiring books <a href="https://www.amazon.com/Power-Women-Harness-Strengths-Community/dp/B005SNN0ZG" style="color: blue;">here</a>
+                                        For decades, people have been advised to eat a low-fat diet with carbs making up 50–60% of calories.
+                                        Surprisingly, this advice was extended to include people with type 2 diabetes — who cannot tolerate
+                                        a lot of easily digestible carbs, like sugar and refined starch.
+                                        People with type 2 diabetes are resistant to insulin and any carbs they eat will cause a big rise in blood sugar levels.
+                                        For this reason, they need to take blood-sugar-lowering drugs to bring their levels down.
+                                        If anyone benefits from a low-carb diet, it is people with diabetes. In one study, following a low-carb
+                                        diet for only 6 months allowed 95.2% of participants to reduce or eliminate their blood sugar medication
                                     </p>
                                 </div>
                             </div>
@@ -117,10 +115,10 @@
                             <div class="row">
                                 <div class="col-sm-8">
                                     <div class="page-header">
-                                        <h2 style="font-family: 'SIMPSON';">The goal and mission of KWSGA</h2>
+                                        <h2 style="font-family: 'SIMPSON';">The goal and mission of Jemd</h2>
                                     </div>
                                     <p style="color: black; font-family: 'SIMPSON'; font-size: 18px;">
-                                        There is always a begginning of something and KWSGA hard a small start with few members.
+                                        There is always a begginning of something and Jemd hard a small start with few members.
                                         Our goal is the hit a target of a hundred or so members not just in one city but every other city in kenya.
                                         This target is set to be achieved by 2030. Feel free to join us. You can contact us through this <a href="{% url 'contact' %}" style="color: blue;">link</a>.
                                         Our mission is to get women together through grouping and inspire each other, help other each and embrace the power of togetherness.
@@ -133,7 +131,7 @@
                         </div>
                         <div>
                             <div class="page-header">
-                                <h2 style="font-family: 'SIMPSON';">The goal and mission of KWSGA</h2>
+                                <h2 style="font-family: 'SIMPSON';">Jemd projects</h2>
                             </div>
                             <div class="row">
                                 <div class="col-lg-4 mb-4">
@@ -141,7 +139,11 @@
                                         <h4 class="card-header">Card Title</h4>
                                         <div class="card-body">
                                             <p class="card-text">
-                                                There is always a begginning of something and KWSGA hard a small start with few members. Our goal is the hit a target of a hundred or so members not just in one city but every other city in kenya. This target is set to be achieved by 2030. Feel free to join us. You can contact us through this link. Our mission is to get women together through grouping and inspire each other, help other each and embrace the power of togetherness.
+                                                There is always a begginning of something and Jemd hard a small start with few members.
+                                                Our goal is the hit a target of a hundred or so members not just in one city but every 
+                                                other city in kenya. This target is set to be achieved by 2030. Feel free to join us. 
+                                                You can contact us through this link. Our mission is to get women together through grouping 
+                                                and inspire each other, help other each and embrace the power of togetherness.
                                             </p>
                                         </div>
                                         <div class="card-footer">
@@ -154,7 +156,11 @@
                                         <h4 class="card-header">Card Title</h4>
                                         <div class="card-body">
                                             <p class="card-text">
-                                                There is always a begginning of something and KWSGA hard a small start with few members. Our goal is the hit a target of a hundred or so members not just in one city but every other city in kenya. This target is set to be achieved by 2030. Feel free to join us. You can contact us through this link. Our mission is to get women together through grouping and inspire each other, help other each and embrace the power of togetherness.
+                                                There is always a begginning of something and Jemd hard a small start with few members.
+                                                Our goal is the hit a target of a hundred or so members not just in one city but every 
+                                                other city in kenya. This target is set to be achieved by 2030. Feel free to join us. 
+                                                You can contact us through this link. Our mission is to get women together through grouping 
+                                                and inspire each other, help other each and embrace the power of togetherness.
                                             </p>
                                         </div>
                                         <div class="card-footer">
@@ -167,7 +173,11 @@
                                         <h4 class="card-header">Card Title</h4>
                                         <div class="card-body">
                                             <p class="card-text">
-                                                There is always a begginning of something and KWSGA hard a small start with few members. Our goal is the hit a target of a hundred or so members not just in one city but every other city in kenya. This target is set to be achieved by 2030. Feel free to join us. You can contact us through this link. Our mission is to get women together through grouping and inspire each other, help other each and embrace the power of togetherness.
+                                                There is always a begginning of something and Jemd hard a small start with few members.
+                                                Our goal is the hit a target of a hundred or so members not just in one city but every 
+                                                other city in kenya. This target is set to be achieved by 2030. Feel free to join us. 
+                                                You can contact us through this link. Our mission is to get women together through grouping 
+                                                and inspire each other, help other each and embrace the power of togetherness.
                                             </p>
                                         </div>
                                         <div class="card-footer">
@@ -179,13 +189,94 @@
                         </div>
                         <div>
                             <div class="page-header">
-                                <h2 style="font-family: 'SIMPSON';">The goal and mission of KWSGA</h2>
+                                <h2 style="font-family: 'SIMPSON';">Articles and blogs</h2>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-4 mb-4">
+                                    <div class="card h-100">
+                                        <h4 class="card-header">Card Title</h4>
+                                        <div class="card-body">
+                                            <p class="card-text">
+                                                There is always a begginning of something and Jemd hard a small start with few members.
+                                                Our goal is the hit a target of a hundred or so members not just in one city but every 
+                                                other city in kenya. This target is set to be achieved by 2030. Feel free to join us. 
+                                                You can contact us through this link. Our mission is to get women together through grouping 
+                                                and inspire each other, help other each and embrace the power of togetherness.
+                                            </p>
+                                        </div>
+                                        <div class="card-footer">
+                                            <a href="#" class="btn btn-primary">Learn More</a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-4 mb-4">
+                                    <div class="card h-100">
+                                        <h4 class="card-header">Card Title</h4>
+                                        <div class="card-body">
+                                            <p class="card-text">
+                                                There is always a begginning of something and Jemd hard a small start with few members.
+                                                Our goal is the hit a target of a hundred or so members not just in one city but every 
+                                                other city in kenya. This target is set to be achieved by 2030. Feel free to join us. 
+                                                You can contact us through this link. Our mission is to get women together through grouping 
+                                                and inspire each other, help other each and embrace the power of togetherness.
+                                            </p>
+                                        </div>
+                                        <div class="card-footer">
+                                            <a href="#" class="btn btn-primary">Learn More</a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-4 mb-4">
+                                    <div class="card h-100">
+                                        <h4 class="card-header">Card Title</h4>
+                                        <div class="card-body">
+                                            <p class="card-text">
+                                                There is always a begginning of something and Jemd hard a small start with few members.
+                                                Our goal is the hit a target of a hundred or so members not just in one city but every 
+                                                other city in kenya. This target is set to be achieved by 2030. Feel free to join us. 
+                                                You can contact us through this link. Our mission is to get women together through grouping 
+                                                and inspire each other, help other each and embrace the power of togetherness.
+                                            </p>
+                                        </div>
+                                        <div class="card-footer">
+                                            <a href="#" class="btn btn-primary">Learn More</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="page-header">
+                                <h2 style="font-family: 'SIMPSON';">Find us</h2>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-8 mb-4">
+                                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d8171118.372306075!2d33.40995907806769!3d0.1540843327377215!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x182780d08350900f%3A0x403b0eb0a1976dd9!2sKenya!5e0!3m2!1sen!2ske!4v1509678605651" width="100%" height="400px" frameborder="0" style="border:0" allowfullscreen></iframe>
+                                </div>
+                                <div class="footer-info col-lg-4">
+                                    <div>
+                                        <h2>Get in touch</h2>
+                                        <p class="p1"><i class="glyphicon glyphicon-globe"></i> 657 Nyeri Town, Nyeri, Kenya<br />
+                                        <i class="glyphicon glyphicon-phone-alt"></i> +254 700546241<br />
+                                        <a href="mailto:info@jemd.com"><i class="glyphicon glyphicon-envelope"></i> info@jemd.com</a></p>
+                                    </div>
+                                    <div>
+                                        <h2>Follow us</h2><br />
+                                        <ul id="sk" class="fa-ul js medium-block-grid-2 small-block-grid-1">
+                                            <li><a href="https://twitter.com/asheuhBM"><i class="ha fa fa-twitter"></i> Twitter</a></li>
+                                            <li><a href="https://web.facebook.com/barryazah"><i class="ha fa fa-facebook"></i> Facebook</a></li>
+                                            <li><a href="https://www.linkedin.com/in/mboya-bryan-007241135/"><i class="ha fa fa-linkedin"></i> Linkedin</a></li>
+                                            <li><a href="https://plus.google.com/108235249302331235391"><i class="ha fa fa-google-plus"></i> Google+</a></li>
+                                            <li><a href="https://github.com/asheuh"><i class="ha fa fa-github"></i> Github</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div><br /><br /><br /><br /><br />
+        </div>
         <script src="vendor/jquery/jquery.min.js"></script>
         <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
         <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
