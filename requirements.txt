@@ -2,7 +2,7 @@ amqp==2.2.2
 asn1crypto==0.22.0
 billiard==3.5.0.3
 celery==4.1.0
-cryptography==2.2.2;
+cryptography==3.2;
 Django==2.0.5
 django-admin-rangefilter==0.3.2
 django-bootstrap3==9.1.0
